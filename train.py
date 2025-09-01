@@ -31,7 +31,7 @@ image = modal.Image.debian_slim(python_version="3.11").pip_install(
         ).entrypoint([]).apt_install("git"
         ).run_commands(
         "cd /root && git clone https://github.com/superbot-ai445/modal-nnUnet.git",
-        "cd /root/nnUNet && pip install -q -e .",
+        "cd /root/modal-nnUnet && pip install -q -e .",
         "pip install -q --upgrade git+https://github.com/FabianIsensee/hiddenlayer.git",
         ).env({"nnUNet_raw": f"{DATA_DIR}/nnUNet_raw", 
                "nnUNet_preprocessed": f"{DATA_DIR}/nnUNet_preprocessed", 
@@ -85,7 +85,7 @@ def train():
 
     _exec_subprocess(
         [
-            "python Dataset137_BraTS21.py",
+            "python modal-nnUnet/Dataset137_BraTS21.py",
             "nnUNetv2_plan_and_preprocess -d 137 --verify_dataset_integrity",
             "nnUNetv2_train 137 3d_fullres 0",
         ]
