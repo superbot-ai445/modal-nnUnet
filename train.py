@@ -33,6 +33,7 @@ image = modal.Image.debian_slim(python_version="3.11").pip_install(
         "cd /root && git clone https://github.com/superbot-ai445/modal-nnUnet.git",
         "cd /root/modal-nnUnet && pip install -q -e .",
         "pip install -q --upgrade git+https://github.com/FabianIsensee/hiddenlayer.git",
+        force_build = True,
         ).env({"nnUNet_raw": f"{DATA_DIR}/nnUNet_raw", 
                "nnUNet_preprocessed": f"{DATA_DIR}/nnUNet_preprocessed", 
                "nnUNet_results": f"{DATA_DIR}/nnUNet_results",

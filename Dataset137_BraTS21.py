@@ -58,7 +58,9 @@ def convert_folder_with_preds_back_to_BraTS_labeling_convention(input_folder: st
 if __name__ == '__main__':
     from tqdm import tqdm
     brats_data_dir = 'data/BraTS_2021'
-
+    import os
+    print(os.getcwd())
+    print(os.listdir(os.getcwd()))
     task_id = 137
     task_name = "BraTS2021"
 
